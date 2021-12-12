@@ -1,0 +1,12 @@
+div(class="flex flex-row justify-between p-3 bg-gray-800 text-yellow-300 bg-opacity-80" id="nav")
+    div(class="flex flex-row justify-evenly ")
+        a(href="/") Home
+        a(href="/journal") Journals
+        a(href="/about") About
+    div(class="flex flex-row justify-evenly")
+        if !user
+            a(href="/" class="hover:bg-white-500") Log in
+            a(href="/users/addUser") Sign up
+        if user
+            a(href="/users/account" class="hover:bg-white-500") Account
+            a(href="/logout" class="hover:bg-white-500") Log out

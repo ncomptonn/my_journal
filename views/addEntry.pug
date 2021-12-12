@@ -1,0 +1,22 @@
+extends layout
+block content
+    form(action='/entries' method='post')
+        div(class="flex items-center justify-center min-h-screen text-yellow-300")
+            div(class="w-1/3 px-8 py-6 mt-4 text-left rounded-lg shadow-lg bg-gray-800 bg-opacity-30 shadow-lg")
+                h3(class="text-2xl font-bold text-center") New Journal
+                form(action="" class="mt-4")
+                    div()
+                        label(for="mood" class="block"): b Mood
+                        input(type="mood" placeholder="Mood" name="mood" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 text-gray-800")
+                    div(class="mt-4")
+                        label(type="entry" class="block"): b Entry
+                        textarea(type="entry" name="entry" placeholder="Entry" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 text-gray-800")
+                    
+                    input(type="hidden" name="location" id="location")
+                    
+                    input(type="hidden" name="weather" id="weather")
+                    
+                    div(class="flex items-baseline justify-between")
+                        button(disabled type="submit" id="createBtn" class="w-full px-6 py-2 mt-4 text-white rounded-lg hover:bg-pink-600") Create
+
+        script(src="/scripts/entry.js")

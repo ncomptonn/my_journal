@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	if user != null
+		div(class="bg-gray-800 rounded-md bg-opacity-30 text-gray-300 p-5 m-10 flex flex-col shadow-lg")
+			div(class="space-y-3 text-gray-300 m-20")
+				h1(class="text-left text-lg text-2xl text-center mb-10") 1Journal
+				h1(class="text-left text-lg text-2xl") Welcome, #{user.email}
+				p(class="text-base") “Everybody wants to be famous, but nobody wants to do the work. I live by that. You grind hard so you can play hard. At the end of the day, you put all the work in, and eventually it’ll pay off. It could be in a year, it could be in 30 years. Eventually, your hard work will pay off.” — Kevin Hart
+	else
+		include ./login.pug

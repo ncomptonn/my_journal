@@ -1,0 +1,41 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.logo {
+  background-color: #0065a4;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: -.5em;
+}
+
+.about {
+  margin: 3em;
+}
+
+#nav a {
+  padding: 1em;
+}
+
+div {
+  font-family: monospace;
+}
+
+h1 {
+  font-family: monospace;
+}
+
+p {
+  font-family: monospace;
+}
+
+.bg-image {
+  background-image: url('/images/homebackground3.jpg');
+  overflow: hidden;
+  height: screen;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}

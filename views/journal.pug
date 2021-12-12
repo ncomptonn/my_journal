@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	table.table.table-striped
+		if user
+			div(class="grid grid-cols-3 gap-5 m-10")
+				each e in entries
+					div(class="bg-gray-800 rounded-md bg-opacity-30 text-gray-300 p-5 flex flex-col shadow-lg")
+
+						form(action="/entries/updateView" method="post")
+							input(type="hidden" name="entry" id="entry" value=e)
+							button(type="submit" class="font-bold flex flex-row justify-end text-yellow-300 hover:bg-white-500") Edit
+						
+						form(action="/entries/delete" method="post")
+							input(type="hidden" name="entryId" id="entryId" value=e._id)
+							button(type="submit" class="font-bold flex flex-row justify-end text-yellow-300 hover:bg-white-500") Delete
+						
+						span Date: #{`${e.date.getMonth()}/${e.date.getDay()}/${e.date.getFullYear()}`}
+						span Mood: #{e.mood} 
+						span Entry: #{e.entry}
+						sppan Weather: #{e.weather}
+				
+				a(href="/entries/addView" class="flex flex-col justify-center bg-gray-800 rounded-md bg-opacity-30 text-yellow-300 p-5 flex flex-col shadow-lg items-center") New Entry +

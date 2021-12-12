@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    div(class="flex flex-col justify-evenly items-center text-yellow-300")
+        div(class="flex flex-col w-full items-center")
+            div(class="w-1/2 px-8 py-6 mt-4 text-left rounded-lg shadow-lg bg-gray-800 bg-opacity-30 shadow-lg")
+                h3(class="text-2xl font-bold text-center") Settings
+                form(action='/users/editUser' method='post')
+                    div 
+                        label(for="email" class="block"): b Email
+                        input(type="email" value=user.email name="email" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 text-gray-800")
+                    div(class="mt-4")
+                        label(type="password" class="block"): b Reset Password
+                        input(type="password" name="password" id="password" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 text-gray-800")
+                    div(class="mt-4")
+                        label(type="password" class="block") Confirm Password
+                        input(type="password" name="checkpassword" id="checkPassword" class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 text-gray-800")
+                    div(class="mt-4")
+                        button(type="submit" id="submitBtn" class="w-full px-4 py-2 mt-4 text-yellow-300 rounded-lg hover:bg-pink-600") Submit
+
+        if user.admin && users
+
+            div(class="flex flex-col w-full items-center mt-6")
+                    div(class="flex flex-col px-8 py-6 rounded-lg shadow-lg bg-gray-800 bg-opacity-30 shadow-lg w-1/2")
+                        h3(class="text-2xl font-bold text-center mb-5") Users
+                        each u in users
+                            div(class="grid grid-cols-4 m-2")
+                                div(class="text-gray-300 overflow-x-hidden col-span-2")
+                                    span Email: #{u.email}
+                                div(class="text-gray-300 overflow-x-hidden")
+                                    span Admin: #{u.admin}
+                                div(class="flex flex-row justify-center overflow-x-hidden") 
+                                    form(action="/users/delete" method="post")
+                                        input(type="hidden" name="userId" id="userId" value=u._id)
+                                        button(type="submit" class="font-bold flex flex-row justify-end text-yellow-300 hover:bg-white-500") Delete
+                                
+    script(src="/scripts/checkpassword.js")
